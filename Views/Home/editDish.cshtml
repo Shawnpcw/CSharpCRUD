@@ -1,0 +1,107 @@
+
+@model Dish
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Portfolio</title>
+       
+        <style>
+            body{
+                background:linear-gradient(370deg, #9D50BB,#6E48AA);
+                height:900px;
+            }
+            .navSub{
+                display: inline-block;
+               
+                text-align: justify;
+            }
+            #container{
+                width:900px;
+                padding:20px;
+                background:linear-gradient(370deg,ghostwhite,whitesmoke);
+         
+                margin-top:30px;
+                border-radius:8px;
+                /* box-shadow: 5px 14px 27px 19px lightpink inset; */
+                text-align: center;
+            }
+           
+            button{
+                border-radius: 8px;
+
+            }
+            #nav{
+                color:thistle;
+            }
+
+
+            span{
+                text-decoration: underline;
+                font-weight: bold;
+            }
+
+            .sub{
+                /* box-shadow: -1px -3px 27px 5px rgb(189, 189, 189) inset; */
+                border-radius:8px;
+                border:1px solid black;
+                min-width:150px;
+                max-width: 200px;
+                text-align: left;
+                color:black;
+                padding:10px;
+                margin:5px;
+            }
+            input{
+                margin:10px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#feed").click(function(){
+                $("#full").load("demo_test.txt");
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id = "nav">
+            <h1>Welcome to CRUDelicious</h1>
+            <div class ="navSub">
+                <h4>Check Out some recent Dishes</h4>
+                <a href="new">Add a Dish</a>
+            </div>
+        </div>
+        <div id = "container">
+            <h1>Edit @Model.Name</h1>
+            <br>
+      <form asp-action ="update",@Model.DishId method ="POST">
+                <label>Chef's Name</label>
+                <span asp-validation-for="Chef"></span>
+                
+                <input asp-for="Chef"><br>
+
+                <label>Name of Dish</label>
+                <span asp-validation-for="Name"></span>
+
+                <input asp-for="Name"><br>
+                
+                <label># of Calories</label>
+                <input asp-for="Calories"><br>
+                
+
+                <label>Tastiness</label>
+                <input asp-for="Tastiness"><br>
+
+                <label>Description</label>
+                <textarea asp-for="Description"></textarea><br><br>
+                
+                <button type="submit">Submit</button>
+
+            </form>
+
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,95 @@
+
+@model Dish
+
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Portfolio</title>
+       
+        <style>
+            body{
+                background:linear-gradient(370deg, #9D50BB,#6E48AA);
+                height:900px;
+            }
+            .sub{
+                display: inline-block;
+               
+                text-align: justify;
+            }
+            #container{
+                width:900px;
+                padding:50px;
+                background:linear-gradient(370deg,ghostwhite,whitesmoke);
+                
+                margin-top:30px;
+                border-radius:8px;
+                /* box-shadow: 5px 14px 27px 19px lightpink inset; */
+                text-align: center;
+            }
+            label{
+                text-align: left;
+                margin:10px;
+            }
+            input{
+                text-align: right;
+            }
+            button{
+                border-radius: 8px;
+
+            }
+            #nav{
+                color:thistle;
+            }
+            h4{
+                display:inline-block;
+                margin-right:550px;
+            }
+            a{
+                display:inline-block;
+                color:thistle;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#feed").click(function(){
+                $("#full").load("demo_test.txt");
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id = "nav">
+            <h1>Add A New Dish!</h1>
+            <div class ="sub">
+                <a href="new">Home</a>
+            </div>
+        </div>
+        <div id = "container">
+            <form asp-action ="" asp-controller="create" method ="POST">
+                <label>Chef's Name</label>
+                <input asp-for="Chef"><br>
+
+                <label>Name of Dish</label>
+                <input asp-for="Name"><br>
+                
+                <label># of Calories</label>
+                <input asp-for="Calories"><br>
+                
+
+                <label>Tastiness</label>
+                <input asp-for="Tastiness"><br>
+
+                <label>Description</label>
+                <textarea asp-for="Description"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+
+
+    </body>
+
+</html>
